@@ -8,18 +8,22 @@ import java.util.Scanner;
 public class main {
 
 
+    public int climbStairs(int n) {
+        if (n == 1) return 1;
 
+        int prev1 = 1;
+        int prev2 = 1;
+
+        for (int i = 2; i <= n; i++) {
+            int current = prev1 + prev2;
+            prev2 = prev1;
+            prev1 = current;
+        }
+        return prev1;
+    }
     public static void main(String[] args) {
 
-        TeslaCompany company = new TeslaCompany();
-
-        company.addTesla(new tesla(7,5,"red",2999));
-        company.addTesla(new tesla(7,5,"blue",6700));
-        company.addTesla(new tesla(7,5,"orange",3030));
-        company.addTesla(new tesla(7,5,"pink",3080));
-
-
-        System.out.println("Hello".compareTo("Hi"));
+        System.out.println(new main().climbStairs(2));
 
     }
 }
